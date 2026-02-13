@@ -8,7 +8,7 @@ DSP derived from [Airwindows](https://www.airwindows.com/) by Chris Johnson (MIT
 
 ## Download
 
-**[Download Slamity v1.0.0 VST3 (Windows x64)](https://github.com/sleepingsw0rd/Slamity/releases/tag/v1.0.0)**
+**[Download Slamity v1.0.0 VST3 + AU (Mac Universal)](https://github.com/sleepingsw0rd/Slamity-Mac/releases/tag/v1.0.0)**
 
 ## Features
 
@@ -17,7 +17,7 @@ DSP derived from [Airwindows](https://www.airwindows.com/) by Chris Johnson (MIT
 - **Chain Order** — switch between Mackity > DrumSlam or DrumSlam > Mackity
 - **Main Output** — global output gain and dry/wet mix
 - **5 VU Meters** — real-time level monitoring at each stage
-- **VST3 + Standalone** formats
+- **VST3 + AU + Standalone** formats (Mac Universal Binary)
 
 ## Controls
 
@@ -44,7 +44,8 @@ cmake --build build --config Release
 
 Outputs:
 - `build/Slamity_artefacts/Release/VST3/Slamity.vst3/`
-- `build/Slamity_artefacts/Release/Standalone/Slamity.exe`
+- `build/Slamity_artefacts/Release/AU/Slamity.component/`
+- `build/Slamity_artefacts/Release/Standalone/Slamity.app/`
 
 ## Credits
 
