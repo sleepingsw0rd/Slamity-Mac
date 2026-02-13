@@ -1,0 +1,105 @@
+# Slamity Layout — edit and resize window to reload
+# X = centre of element (fraction of width)
+# Y = top edge of element (fraction of height)
+
+# --- Sizes ---
+knobSize   = 0.1155
+switchSize = 0.091
+labelW     = 0.18
+labelH     = 16
+mdLabelW   = 0.06
+mdLabelH   = 14
+
+# =============================================
+#  MACKITY SECTION (left column)
+# =============================================
+
+# --- IN TRIM ---
+mackInTrimLabel_x = 0.165
+mackInTrimLabel_y = 0.10
+mackInTrimKnob_x  = 0.165
+mackInTrimKnob_y  = 0.14
+
+# --- OUT PAD ---
+mackOutPadLabel_x = 0.165
+mackOutPadLabel_y = 0.30
+mackOutPadKnob_x  = 0.165
+mackOutPadKnob_y  = 0.34
+
+# --- DRY/WET ---
+mackDryWetLabel_x = 0.165
+mackDryWetLabel_y = 0.50
+mackDryWetKnob_x  = 0.165
+mackDryWetKnob_y  = 0.54
+
+# =============================================
+#  DRUMSLAM SECTION (right column)
+# =============================================
+
+# --- DRIVE ---
+drumDriveLabel_x = 0.835
+drumDriveLabel_y = 0.10
+drumDriveKnob_x  = 0.835
+drumDriveKnob_y  = 0.14
+
+# --- OUTPUT ---
+drumOutputLabel_x = 0.835
+drumOutputLabel_y = 0.30
+drumOutputKnob_x  = 0.835
+drumOutputKnob_y  = 0.34
+
+# --- DRY/WET ---
+drumDryWetLabel_x = 0.835
+drumDryWetLabel_y = 0.50
+drumDryWetKnob_x  = 0.835
+drumDryWetKnob_y  = 0.54
+
+# =============================================
+#  BOTTOM ROW (global controls)
+# =============================================
+
+# --- Chain Order Switch ---
+chainSwitch_x = 0.165
+chainSwitch_y = 0.76
+
+
+# --- M > D label ---
+mdLeft_x = 0.12
+mdLeft_y = 0.72
+
+# --- D > M label ---
+mdRight_x = 0.21
+mdRight_y = 0.72
+
+# --- Main DRY/WET ---
+mainDryWetLabel_x = 0.41
+mainDryWetLabel_y = 0.72
+mainDryWetKnob_x  = 0.41
+mainDryWetKnob_y  = 0.75
+
+# --- Main OUTPUT ---
+mainOutputLabel_x = 0.600
+mainOutputLabel_y = 0.72
+mainOutputKnob_x  = 0.600
+mainOutputKnob_y  = 0.75
+
+# =============================================
+#  VU METERS
+# =============================================
+vuH = 0.1155
+
+# --- Row 1: Mackity IN TRIM / DrumSlam DRIVE ---
+vuMackInTrim_x = 0.37
+vuMackInTrim_y = 0.14
+vuDrumDrive_x  = 0.63
+vuDrumDrive_y  = 0.14
+
+# --- Row 2: Mackity OUT PAD / DrumSlam OUTPUT ---
+vuMackOutPad_x = 0.37
+vuMackOutPad_y = 0.34
+vuDrumOutput_x = 0.63
+vuDrumOutput_y = 0.34
+
+# --- Row 3: Main Output (centered) ---
+vuMainOutput_x = 0.50
+vuMainOutput_y = 0.54
