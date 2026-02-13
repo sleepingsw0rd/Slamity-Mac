@@ -32,7 +32,7 @@ juce_add_plugin(Slamity
 
 # Embed GUI assets as binary data
 juce_add_binary_data(SlamityData SOURCES
-    GUI/GUI_BG_NoLabel.png
+    GUI/GUI_BG_NoLabel-logo.png
     GUI/Rotary.png
     GUI/Switch.png
     GUI/VU.png)

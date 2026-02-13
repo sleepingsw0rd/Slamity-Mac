@@ -89,8 +89,8 @@ SlamityEditor::SlamityEditor(SlamityProcessor& p)
     : AudioProcessorEditor(&p), processorRef(p)
 {
     // Load background image
-    backgroundImage = juce::ImageCache::getFromMemory(BinaryData::GUI_BG_NoLabel_png,
-                                                       BinaryData::GUI_BG_NoLabel_pngSize);
+    backgroundImage = juce::ImageCache::getFromMemory(BinaryData::GUI_BG_NoLabellogo_png,
+                                                       BinaryData::GUI_BG_NoLabellogo_pngSize);
 
     // Set window size to match image
     int w = backgroundImage.getWidth();
@@ -171,7 +171,7 @@ void SlamityEditor::timerCallback()
 
 //==============================================================================
 void SlamityEditor::drawDymoLabel(juce::Graphics& g, juce::Rectangle<int> bounds,
-                                   const juce::String& text) const
+                                   const juce::String& text, float fontSize) const
 {
     auto area = bounds.toFloat();
 
@@ -188,7 +188,7 @@ void SlamityEditor::drawDymoLabel(juce::Graphics& g, juce::Rectangle<int> bounds
     g.drawRoundedRectangle(bounds.toFloat(), 2.5f, 0.8f);
 
     // Embossed text shadow (offset slightly down-right)
-    auto monoFont = juce::Font(juce::Font::getDefaultMonospacedFontName(), 10.5f, juce::Font::bold);
+    auto monoFont = juce::Font(juce::Font::getDefaultMonospacedFontName(), fontSize, juce::Font::bold);
     g.setFont(monoFont);
 
     g.setColour(juce::Colour(0xff060608));
@@ -250,6 +250,23 @@ void SlamityEditor::paint(juce::Graphics& g)
         int y  = (int)(h * lv(L, yKey, yDef));
         drawDymoLabel(g, { cx - lw / 2, y, lw, lh }, text);
     };
+
+    // Section title labels (2x size, width hugs text)
+    int secLabelH = labelH * 2;
+    float secFontSize = 21.0f;
+    auto secFont = juce::Font(juce::Font::getDefaultMonospacedFontName(), secFontSize, juce::Font::bold);
+    int secPad = secLabelH;
+
+    auto sectionLabel = [&](const char* xKey, float xDef, const char* yKey, float yDef,
+                            const juce::String& text) {
+        int cx = (int)(w * lv(L, xKey, xDef));
+        int y  = (int)(h * lv(L, yKey, yDef));
+        int tw = (int)std::ceil(secFont.getStringWidthFloat(text)) + secPad;
+        drawDymoLabel(g, { cx - tw / 2, y, tw, secLabelH }, text, secFontSize);
+    };
+
+    sectionLabel("mackSectionLabel_x", 0.267f, "mackSectionLabel_y", 0.04f, "MACKITY");
+    sectionLabel("drumSectionLabel_x", 0.733f, "drumSectionLabel_y", 0.04f, "DRUMSLAM");
 
     // Mackity labels
     label("mackInTrimLabel_x", 0.165f, "mackInTrimLabel_y", 0.10f, "IN TRIM", labelW, labelH);

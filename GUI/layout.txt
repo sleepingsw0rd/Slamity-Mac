@@ -10,6 +10,12 @@ labelH     = 16
 mdLabelW   = 0.06
 mdLabelH   = 14
 
+# --- Section title labels (2x size) ---
+mackSectionLabel_x = 0.167
+mackSectionLabel_y = 0.04
+drumSectionLabel_x = 0.833
+drumSectionLabel_y = 0.04
+
 # =============================================
 #  MACKITY SECTION (left column)
 # =============================================

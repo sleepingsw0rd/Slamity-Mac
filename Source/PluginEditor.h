@@ -174,7 +174,7 @@ private:
     SwitchImageLookAndFeel switchLnF;
 
     // Helper to draw Dymo-style label tape
-    void drawDymoLabel(juce::Graphics& g, juce::Rectangle<int> bounds, const juce::String& text) const;
+    void drawDymoLabel(juce::Graphics& g, juce::Rectangle<int> bounds, const juce::String& text, float fontSize = 10.5f) const;
 
     // Helper to configure a standard rotary knob
     void setupKnob(juce::Slider& slider);

@@ -449,11 +449,11 @@ void SlamityProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::Midi
 
     // Store RMS levels for VU meters (mono sum: average of L+R)
     double invN = 1.0 / (double)sampleFrames;
-    vuMackInTrim.store((float)std::sqrt(rmsAccMackTrim * invN * 0.5), std::memory_order_relaxed);
-    vuMackOutPad.store((float)std::sqrt(rmsAccMackPad * invN * 0.5), std::memory_order_relaxed);
-    vuDrumDrive.store((float)std::sqrt(rmsAccDrumDrive * invN * 0.5), std::memory_order_relaxed);
-    vuDrumOutput.store((float)std::sqrt(rmsAccDrumOut * invN * 0.5), std::memory_order_relaxed);
-    vuMainOutput.store((float)std::sqrt(rmsAccMainOut * invN * 0.5), std::memory_order_relaxed);
+    vuMackInTrim.store((float)std::sqrt(rmsAccMackTrim * invN * 0.5), std::memory_order_relaxed);              // 1.0x (no change)
+    vuMackOutPad.store((float)(std::sqrt(rmsAccMackPad * invN * 0.5) * mackInTrimParam * 10.0), std::memory_order_relaxed); // scaled by In Trim
+    vuDrumDrive.store((float)(std::sqrt(rmsAccDrumDrive * invN * 0.5) * 1.5), std::memory_order_relaxed);      // +50%
+    vuDrumOutput.store((float)(std::sqrt(rmsAccDrumOut * invN * 0.5) * 1.75), std::memory_order_relaxed);      // +75%
+    vuMainOutput.store((float)(std::sqrt(rmsAccMainOut * invN * 0.5) * 2.25), std::memory_order_relaxed);      // +125%
 }
 
 //==============================================================================
