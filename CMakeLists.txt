@@ -1,16 +1,20 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(Slamity VERSION 1.0.0 LANGUAGES CXX)
+project(Slamity VERSION 1.0.0 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Build universal binary (Intel + Apple Silicon)
+set(CMAKE_OSX_ARCHITECTURES "arm64;x86_64")
+set(CMAKE_OSX_DEPLOYMENT_TARGET "10.13")
 
 # Fetch JUCE
 include(FetchContent)
 FetchContent_Declare(
     JUCE
     GIT_REPOSITORY https://github.com/juce-framework/JUCE.git
-    GIT_TAG        7.0.12
+    GIT_TAG        8.0.12
     GIT_SHALLOW    TRUE
 )
 FetchContent_MakeAvailable(JUCE)
@@ -26,7 +30,7 @@ juce_add_plugin(Slamity
     COPY_PLUGIN_AFTER_BUILD FALSE
     PLUGIN_MANUFACTURER_CODE MyCo
     PLUGIN_CODE              Slam
-    FORMATS                  VST3 Standalone
+    FORMATS                  AU VST3 Standalone
     PRODUCT_NAME             "Slamity"
 )
 
